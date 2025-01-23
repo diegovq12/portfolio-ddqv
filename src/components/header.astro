@@ -1,0 +1,60 @@
+---
+
+---
+
+<header>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+
+    header{
+        padding: 4rem 2rem;
+        position: sticky;
+        top:0;
+        
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-list {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-list a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        font-weight: 600;
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    .nav-list a:hover {
+        color: rgba(255, 255, 255, 1);
+        transform: scale(1.1);
+    }
+
+</style>
+<script>
+    function pxToRem(px:number) {
+        const baseFontSize = 16; // Default browser font size is 16px
+        return `${px / baseFontSize}rem`;
+    }
+
+    console.log(pxToRem(64)); // Example usage
+</script>
