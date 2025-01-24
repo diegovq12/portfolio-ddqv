@@ -1,0 +1,49 @@
+---
+import ProjectCard from '../components/project.card.astro';
+
+const projects = [
+  {
+    title: 'E-Commerce App',
+    description: 'Plataforma de comercio electrónico con pasarela de pago integrada.',
+    technologies: ['React', 'Node.js', 'MongoDB'],
+    images: [
+      './public/projects/loginpimeva.png',
+      './public/projects/iniciopimeva.png',
+      './public/projects/chatpimeva.png',
+      './public/projects/contactospimeva.png'
+    ],
+  },
+];
+---
+
+<section id="proyectos" class="proyectos">
+  <h2 class="section-title">Proyectos</h2>
+  <div class="project-list">
+    {projects.map((project) => (
+      <ProjectCard {...project} />
+    ))}
+  </div>
+</section>
+
+<style>
+  .proyectos {
+    padding: 3rem 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+  
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  </style>
+  
