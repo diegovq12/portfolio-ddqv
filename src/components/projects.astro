@@ -1,16 +1,41 @@
 ---
-import ProjectCard from '../components/project.card.astro';
+import ProjectCard from "../components/project.card.astro";
 
-const projects = [
+export const projects = [
   {
-    title: 'E-Commerce App',
-    description: 'Plataforma de comercio electrónico con pasarela de pago integrada.',
-    technologies: ['React', 'Node.js', 'MongoDB'],
+    title: "Pimeva Chat",
+    description:
+      "Sistema de chat en tiempo real para creado para una empresa portuaria de mi ciudad.",
+    technologies: ["React", "Node.js", "MongoDB"],
     images: [
-      './public/projects/loginpimeva.png',
-      './public/projects/iniciopimeva.png',
-      './public/projects/chatpimeva.png',
-      './public/projects/contactospimeva.png'
+      "./projects/loginpimeva.webp",
+      "./projects/iniciopimeva.webp",
+      "./projects/chatpimeva.webp",
+      "./projects/contactospimeva.webp",
+    ],
+  },
+  {
+    title: "E-Commerce App",
+    description:
+      "Plataforma de comercio electrónico con pasarela de pago integrada.",
+    technologies: ["React", "Node.js", "MongoDB"],
+    images: [
+      "./projects/loginpimeva.webp",
+      "./projects/iniciopimeva.webp",
+      "./projects/chatpimeva.webp",
+      "./projects/contactospimeva.webp",
+    ],
+  },
+  {
+    title: "E-Commerce App",
+    description:
+      "Plataforma de comercio electrónico con pasarela de pago integrada.",
+    technologies: ["React", "Node.js", "MongoDB"],
+    images: [
+      "./projects/loginpimeva.webp",
+      "./projects/iniciopimeva.webp",
+      "./projects/chatpimeva.webp",
+      "./projects/contactospimeva.webp",
     ],
   },
 ];
@@ -19,31 +44,30 @@ const projects = [
 <section id="proyectos" class="proyectos">
   <h2 class="section-title">Proyectos</h2>
   <div class="project-list">
-    {projects.map((project) => (
-      <ProjectCard {...project} />
-    ))}
+    {projects.map((project) => <ProjectCard {...project} />)}
   </div>
 </section>
 
 <style>
   .proyectos {
     padding: 3rem 1rem;
-    background-color: #f9f9f9;
+    background-color: #12192b;
   }
-  
+
   .section-title {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #222;
+    color: #9bb7d4;
   }
-  
+
   .project-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
+    justify-content: center;
   }
-  </style>
-  
+</style>

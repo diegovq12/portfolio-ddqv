@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import Button from "./button.astro";
+import project from "./projects.astro";
+import {projects} from "./projects.astro";
 interface Props {
   title: string;
   description: string;
@@ -7,105 +11,80 @@ interface Props {
 }
 
 const { title, description, technologies, images } = Astro.props;
+
+let currentImageIndex = 0;
+
+// Funciones para cambiar de imagen
+function previousImage() {
+  currentImageIndex =
+    (currentImageIndex - 1 + images.length) % images.length;
+}
+
+function nextImage() {
+  currentImageIndex =
+    (currentImageIndex + 1) % images.length;
+}
+
 ---
 
 <div class="project-card">
   <!-- Galería de imágenes -->
-
   <div class="image-gallery">
-    <!-- Imagen principal -->
+    <button class="arrow left" on:click={previousImage}> > </button>
     <img
-      src={import.meta.env.BASE_URL + images[0]}
-      alt={`Imagen de ${title}`}
-      class="main-image"
+      src={images[currentImageIndex]}
+      alt={`Imagen ${currentImageIndex + 1} del proyecto`}
     />
+    <button class="arrow right" onclick={nextImage}> > </button>
+  </div>
 
-    <!-- Miniaturas -->
-    <div class="thumbnails">
-      {
-        images.map((img, index) => (
-          <img
-            src={import.meta.env.BASE_URL + img}
-            alt={`Thumbnail ${index + 1}`}
-            class="thumbnail"
-            onclick={`changeMainImage('${img}')`}
-          />
-        ))
-      }
+  <!-- Información del proyecto -->
+  <div class="info">
+    <h3 class="title">{title}</h3>
+    <p class="description">{description}</p>
+    <div class="technologies">
+      {technologies.map((tech) => <span class="tech-tag">{tech}</span>)}
+    </div>
+    <div class="buttons">
+      <Button
+        text="GitHub"
+        href="https://github.com/diegovq12"
+        icon="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+        type="primary"
+      />
     </div>
   </div>
 </div>
 
-<!-- Información del proyecto -->
-<div class="info">
-  <h3 class="title">{title}</h3>
-  <p class="description">{description}</p>
-  <div class="technologies">
-    {technologies.map((tech) => <span class="tech-tag">{tech}</span>)}
-  </div>
-</div>
-
-<script>
-  export interface Props {
-    images: string[];
-    title: string;
-  }
-
-  // Función para manejar el cambio de imagen principal
-  function changeMainImage(img: string) {
-    const mainImage = document.querySelector(
-      ".image-gallery .main-image",
-    ) as HTMLImageElement | null;
-    if (mainImage) {
-      mainImage.src = import.meta.env.BASE_URL + img;
-    }
-  }
-</script>
 <style>
   .project-card {
     display: flex;
+    width: 51rem;
     gap: 1.5rem;
     margin-bottom: 2rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #1e2a47;
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px #9bb6d4;
     overflow: hidden;
+    border: 2px solid #9bb7d4;
   }
 
   .image-gallery {
+    position: relative;
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #f7f7f7;
+
     padding: 1rem;
   }
 
   .image-gallery img {
-    width: 100%;
+    width: 24rem;
     height: auto;
     border-radius: 4px;
     object-fit: cover;
-  }
-
-  .thumbnails {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .thumbnail {
-    width: 50px;
-    height: 50px;
-    border-radius: 4px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-
-  .thumbnail:hover {
-    transform: scale(1.1);
   }
 
   .info {
@@ -117,13 +96,13 @@ const { title, description, technologies, images } = Astro.props;
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: #fff;
   }
 
   .description {
     font-size: 1rem;
     margin-bottom: 1rem;
-    color: #555;
+    color: #e6f1ff;
   }
 
   .technologies {
@@ -135,10 +114,35 @@ const { title, description, technologies, images } = Astro.props;
   .tech-tag {
     background-color: #e3e3e3;
     padding: 0.4rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 10px;
     font-size: 0.9rem;
     color: #555;
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  .buttons {
+    margin-top: 10px;
+  }
+
+  .arrow {
+    position: absolute;
+    /* background: rgba(0, 0, 0, 0.5); */
+    color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .arrow.left {
+    rotate: 180deg;
+    left: 10px;
+  }
+  .arrow.right {
+    right: 10px;
   }
 </style>
