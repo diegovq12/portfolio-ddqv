@@ -1,54 +1,22 @@
 ---
-import { Image } from "astro:assets";
+import ImageGallery from "./ImageGallery.jsx";
 import Button from "./button.astro";
-import project from "./projects.astro";
-import {projects} from "./projects.astro";
-interface Props {
-  title: string;
-  description: string;
-  technologies: string[];
-  images: string[];
-}
 
-const { title, description, technologies, images } = Astro.props;
-
-let currentImageIndex = 0;
-
-// Funciones para cambiar de imagen
-function previousImage() {
-  currentImageIndex =
-    (currentImageIndex - 1 + images.length) % images.length;
-}
-
-function nextImage() {
-  currentImageIndex =
-    (currentImageIndex + 1) % images.length;
-}
-
+const { title, description, technologies, images, repository } = Astro.props;
 ---
 
 <div class="project-card">
-  <!-- Galería de imágenes -->
-  <div class="image-gallery">
-    <button class="arrow left" on:click={previousImage}> > </button>
-    <img
-      src={images[currentImageIndex]}
-      alt={`Imagen ${currentImageIndex + 1} del proyecto`}
-    />
-    <button class="arrow right" onclick={nextImage}> > </button>
-  </div>
-
-  <!-- Información del proyecto -->
+  <ImageGallery client:load images={images} />
   <div class="info">
     <h3 class="title">{title}</h3>
     <p class="description">{description}</p>
     <div class="technologies">
-      {technologies.map((tech) => <span class="tech-tag">{tech}</span>)}
+      {technologies.map((tech: string) => <span class="tech-tag">{tech}</span>)}
     </div>
     <div class="buttons">
       <Button
         text="GitHub"
-        href="https://github.com/diegovq12"
+        href={repository}
         icon="https://cdn-icons-png.flaticon.com/512/25/25231.png"
         type="primary"
       />
@@ -56,11 +24,11 @@ function nextImage() {
   </div>
 </div>
 
-<style>
+<style "global":true>
   .project-card {
     display: flex;
-    width: 51rem;
-    gap: 1.5rem;
+    width: 55rem;
+    gap: 0.5rem;
     margin-bottom: 2rem;
     background-color: #1e2a47;
     border-radius: 16px;
@@ -69,6 +37,23 @@ function nextImage() {
     border: 2px solid #9bb7d4;
   }
 
+  /* .image-gallery-container {
+  display: flex;
+  justify-content: flex-start;  
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px; 
+  margin: 0 auto;
+}
+
+.image-gallery-container img {
+  width: 24rem;  
+  height: auto;  
+  border-radius: 8px;
+  object-fit: cover; 
+} */
+
   .image-gallery {
     position: relative;
     flex: 1;
@@ -76,16 +61,15 @@ function nextImage() {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
     padding: 1rem;
   }
 
-  .image-gallery img {
+  /* .image-gallery img {
     width: 24rem;
     height: auto;
     border-radius: 4px;
     object-fit: cover;
-  }
+  } */
 
   .info {
     flex: 2;
@@ -123,26 +107,5 @@ function nextImage() {
 
   .buttons {
     margin-top: 10px;
-  }
-
-  .arrow {
-    position: absolute;
-    /* background: rgba(0, 0, 0, 0.5); */
-    color: rgb(255, 0, 0);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  .arrow.left {
-    rotate: 180deg;
-    left: 10px;
-  }
-  .arrow.right {
-    right: 10px;
   }
 </style>
