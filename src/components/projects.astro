@@ -42,10 +42,17 @@ export const projects = [
 ---
 
 <section id="proyectos" class="proyectos">
-  <h2 class="section-title">Proyectos</h2>
+  <h2 class="proyectos-title">Proyectos</h2>
+  <div class="proyectos-description">
+    <p>
+      Proyectos en los que he trabajado tanto para la escuela 
+      como para desarrollar mis habilidades de programacion.
+    </p>
+  </div>
   <div class="project-list">
     {projects.map((project) => <ProjectCard {...project} />)}
   </div>
+
 </section>
 
 <style>
@@ -59,14 +66,30 @@ export const projects = [
     background-color: #12192b;
   }
 
-  .section-title {
+  .proyectos-title {
+    margin-top: 2rem ;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+    color: #fff;
+  }
+
+  .proyectos-description{
+    margin: 1.25rem;
+    margin-bottom: 3rem;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     font-size: 2rem;
     padding: 2rem;
     margin-bottom: 2rem;
     color: #9bb7d4;
+    font-size: 1.25rem;
+    text-align: center;
+    text-wrap: pretty;
+    
   }
-
   .project-list {
     display: flex;
     flex-direction: row;
