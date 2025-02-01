@@ -1,18 +1,64 @@
 ---
-
+import Image from "astro/components/Image.astro";
+import myPhoto from "/public/foto.jpeg";
 ---
-<section id="about" class="about">
 
-    <h2 class="about-title">Sobre mi</h2>
+<section id="about" class="about">
+  <Image class="photo" src={myPhoto} alt="Mi foto" width={300} format="jpeg" />
+  <div>
+    <h1 class="about-title">Sobre mi</h1>
     <div class="about-description">
       <p>
-        Soy un apasionado de la tecnología y las computadoras, lo que me 
-        llevó a estudiar ingeniería en software. En mi tiempo libre, disfruto de 
-        escuchar música, ir al gimnasio, ver anime y leer tanto libros como mangas. 
-        <br>
-        También me encanta jugar videojuegos. Estas actividades me permiten relajarme 
-        y mantener un equilibrio entre el trabajo y el ocio.
+        Soy un apasionado de la tecnología y las computadoras, lo que me llevó a
+        estudiar ingeniería en software. En mi tiempo libre, disfruto de
+        escuchar música, ir al gimnasio, ver anime y leer tanto libros como
+        mangas.
+        <br />
+        <br />
+        También disfruto mucho de jugar videojuegos. Estas actividades me permiten
+        relajarme y mantener un equilibrio entre el estudio y el ocio.
       </p>
     </div>
+  </div>
+</section>
 
-  </section>
+<style>
+
+  .photo{
+    /* border: 2px solid #9bb7d4; */
+    border-radius: 5px;
+    box-shadow: -15px 12px 0px 0px #30496B;
+  }
+
+  .about {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin: 14rem auto;
+    align-items: center;
+    max-width: 60rem;
+    gap: 2rem;
+
+    min-height: 50vh;
+  }
+
+  .about-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-title {
+    font-size: 3.5rem;
+    color: #9bb7d4;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* text-align: start; */
+  }
+
+  .about-description {
+    font-size: 1.5rem;
+    /* font-weight: 100; */
+    color: #e6f1ff;
+    text-wrap: pretty;
+  }
+</style>

@@ -27,7 +27,7 @@ const { title, description, technologies, images, repository } = Astro.props;
 <style "global":true>
   .project-card {
     display: flex;
-    width: 55rem;
+    width: 60rem;
     gap: 0.5rem;
     margin-bottom: 2rem;
     background-color: #12192B;
@@ -55,13 +55,13 @@ const { title, description, technologies, images, repository } = Astro.props;
 } */
 
   .image-gallery {
-    position: relative;
+    position: absolute;
     flex: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 2rem;
   }
 
   /* .image-gallery img {
@@ -74,6 +74,7 @@ const { title, description, technologies, images, repository } = Astro.props;
   .info {
     flex: 2;
     padding: 1.5rem;
+    min-width: 10rem;
   }
 
   .title {
@@ -107,6 +108,6 @@ const { title, description, technologies, images, repository } = Astro.props;
   }
 
   .buttons {
-    margin-top: 10px;
+    margin-top: 18px;
   }
 </style>

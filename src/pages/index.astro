@@ -1,18 +1,24 @@
 ---
-
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/header.astro'
-import Inicio from '../components/inicio.astro'
-import Projects from '../components/projects.astro';
-import About from '../components/about.astro';
-
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/header.astro";
+import Inicio from "../components/inicio.astro";
+import Projects from "../components/projects.astro";
+import About from "../components/about.astro";
 ---
 
-<Layout 
+<Layout
 	title="Porfolio de Diegovq - Desarrollador y Programador de aplicaciones Web"
-	description="Conoce mis proyectos y experiencia como desarrollador de software">
+	description="Conoce mis proyectos y experiencia como desarrollador de software"
+>
 	<Header />
 	<Inicio />
 	<Projects />
 	<About />
 </Layout>
+
+<style >
+	body {
+		background-color: #12192b;
+
+	}
+</style>

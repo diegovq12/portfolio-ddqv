@@ -6,37 +6,35 @@ export const projects = [
     title: "Pimeva Chat",
     description:
       "Sistema de chat en tiempo real para creado para una empresa portuaria de mi ciudad.",
-    technologies: ["React", "Node.js", "MongoDB"],
+    technologies: ["React", "Java", "Springbot", "MongoDB"],
     images: [
-      "./projects/loginpimeva.webp",
-      "./projects/iniciopimeva.webp",
-      "./projects/chatpimeva.webp",
-      "./projects/contactospimeva.webp",
+      "/projects/chatpimeva/loginpimeva.webp",
+      "/projects/chatpimeva/iniciopimeva.webp",
+      "/projects/chatpimeva/chatpimeva.webp",
+      "/projects/chatpimeva/contactospimeva.webp",
     ],
-    repository:"https://github.com/diegovq12/Pimeva-Chat"
+    repository: "https://github.com/diegovq12/Pimeva-Chat",
   },
   {
     title: "Currency Converter",
     description:
-      "Console application that fetches real-time exchange rates using an API to convert currencies efficiently. ",
+      "Aplicación de consola que obtiene tasas de cambio en tiempo real utilizando una API para convertir monedas de manera eficiente.",
     technologies: ["Java", "Springbot"],
-    images: [
-      "./projects/loginpimeva.webp",
-    ],
-    repository:"https://github.com/diegovq12/Conversor-De-Monedas"
+    images: ["./public/exchange.webp"],
+    repository: "https://github.com/diegovq12/Conversor-De-Monedas",
   },
   {
     title: "Cooking Hub",
     description:
-      "Plataforma de comercio electrónico con pasarela de pago integrada.",
+      "Aplicación multiplataforma que permite al usuario hablar con un chatbot y pedirle recetas con ingredientes específicos, de alguna temporada o país. Permite crear tu lista de compras, encontrar los mercados más cercanos a tu ubicación y obtener el precio aproximado de tu lista de compras.",
     technologies: ["Flutter", "Dart", "MongoDB"],
     images: [
-      "./projects/loginpimeva.webp",
-      "./projects/iniciopimeva.webp",
-      "./projects/chatpimeva.webp",
-      "./projects/contactospimeva.webp",
+      "./projects/cookinghub/Pantalla-Inicial-1.webp",
+      "./projects/cookinghub/IniciarSesion.webp",
+      "./projects/cookinghub/Mensajes.webp",
+      "./projects/cookinghub/Recetas2.webp",
     ],
-    repository:"https://github.com/diegovq12/CookingHub"
+    repository: "https://github.com/diegovq12/CookingHub",
   },
 ];
 ---
@@ -45,36 +43,35 @@ export const projects = [
   <h2 class="proyectos-title">Proyectos</h2>
   <div class="proyectos-description">
     <p>
-      Proyectos en los que he trabajado tanto para la escuela 
-      como para desarrollar mis habilidades de programacion.
+      Proyectos en los que he trabajado tanto para la escuela como para
+      desarrollar mis habilidades de programacion.
     </p>
   </div>
   <div class="project-list">
     {projects.map((project) => <ProjectCard {...project} />)}
   </div>
-
 </section>
 
 <style>
-
-  #proyectos{
+  #proyectos {
     min-height: 90vh;
   }
 
   .proyectos {
     padding: 5rem 1rem;
     background-color: #12192b;
+    /* min-width: 250px; */
   }
 
   .proyectos-title {
-    margin-top: 2rem ;
+    margin-top: 2rem;
     text-align: center;
     font-size: 3rem;
     margin-bottom: 2.5rem;
     color: #fff;
   }
 
-  .proyectos-description{
+  .proyectos-description {
     margin: 1.25rem;
     margin-bottom: 3rem;
     max-width: 50%;
@@ -88,15 +85,20 @@ export const projects = [
     font-size: 1.25rem;
     text-align: center;
     text-wrap: pretty;
-    
   }
   .project-list {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
-    /* max-width: 1200px; */
     margin: 0 auto;
     justify-content: center;
+  }
+
+  .project-list > :nth-child(odd) {
+    align-selff: flex-end;
+  }
+
+  .project-list > :nth-child(even) {
+    align-self: flex-start;
   }
 </style>

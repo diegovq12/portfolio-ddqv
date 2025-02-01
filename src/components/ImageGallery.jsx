@@ -19,10 +19,13 @@ const ImageGallery = ({ images }) => {
                 alt={`Imagen ${currentImageIndex + 1} del proyecto`}
                 aria-label={`Imagen ${currentImageIndex + 1} de ${images.length}`}
                 style={{
-                    maxWidth: "28rem", 
-                    height: "auto",   
+                    maxWidth: "30rem", 
+                    height: "20rem",   
                     borderRadius: "8px",
-                    objectFit: "fill", 
+                    objectFit: "fill",
+                    padding:"1rem",
+                    marginLeft: "auto",
+                    marginRight: "auto"
                 }}
             />
             <button className="arrow right" onClick={nextImage}> &gt; </button>
