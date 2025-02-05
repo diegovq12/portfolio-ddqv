@@ -17,7 +17,7 @@ const {description,title} = Astro.props
 		<ClientRouter />
 
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<link
@@ -51,14 +51,32 @@ const {description,title} = Astro.props
 		z-index: -10;
 		height: 100%;
 		width: 100%;
-		/* background: radial-gradient(
-				100% 125% at 50% 0%,
-				#12192b41 0%,
-				#1e2a477e 55%,
-				#30496b 100%
-			)
-			#000;  */ 
-			background: radial-gradient(100% 100% at 50% 0%, rgba(18, 25, 43, 0.4) 0%, rgba(30, 42, 71, 0.7) 55%, #30496B 100%), #000000;
-			background-blend-mode: lighten; 
+		background: radial-gradient(100% 100% at 50% 0%, rgba(18, 25, 43, 0.4) 0%, rgba(30, 42, 71, 0.7) 55%, #30496B 100%), #000000;
+		background-blend-mode: lighten; 
+	}
+
+	/* Media Queries for Responsiveness */
+	@media (max-width: 1200px) {
+		body {
+			font-size: 18px;
+		}
+	}
+
+	@media (max-width: 992px) {
+		body {
+			font-size: 16px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		body {
+			font-size: 14px;
+		}
+	}
+
+	@media (max-width: 576px) {
+		body {
+			font-size: 12px;
+		}
 	}
 </style>

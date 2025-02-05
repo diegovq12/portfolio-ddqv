@@ -13,24 +13,33 @@ const ImageGallery = ({ images }) => {
     };
 
     return (
-        <div className="image-gallery" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
+        <div className="image-gallery">
             <button className="arrow left" onClick={previousImage}><IoIosArrowBack /></button>
             <img
                 src={images[currentImageIndex]}
                 alt={`Imagen ${currentImageIndex + 1} del proyecto`}
                 aria-label={`Imagen ${currentImageIndex + 1} de ${images.length}`}
-                style={{
-                    maxWidth: "28rem", 
-                    height:"20rem",
-                    borderRadius: "8px",
-                    objectFit: "fill",
-                    padding:"1rem",
-                    marginLeft: "auto",
-                    marginRight: "auto"
-                }}
             />
             <button className="arrow right" onClick={nextImage}><IoIosArrowForward /></button>
             <style jsx>{`
+                .image-gallery {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 1rem;
+                    padding: 1rem;
+                }
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                    object-fit: fill;
+                    padding: 1rem;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
                 .arrow {
                     background-color: transparent;
                     border: none;
@@ -45,12 +54,32 @@ const ImageGallery = ({ images }) => {
                 }
 
                 .left {
-                    padding:1rem;
-                    margin-right:-10px;
+                    padding: 1rem;
+                    margin-right: -10px;
                 }
 
                 .right {
                     margin-left: -20px;
+                }
+
+                @media (max-width: 768px) {
+                    .arrow {
+                        font-size: 1.5rem;
+                    }
+
+                    img {
+                        max-width: 90%;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .arrow {
+                        font-size: 1.2rem;
+                    }
+
+                    img {
+                        max-width: 80%;
+                    }
                 }
             `}</style>
         </div>
