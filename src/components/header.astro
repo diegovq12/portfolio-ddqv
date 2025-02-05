@@ -3,7 +3,7 @@
 ---
 
 <header>
-    <nav class="nav">
+    <nav class="nav" id="main-nav">
         <ul class="nav-list">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
@@ -12,23 +12,21 @@
             <li><a href="#contacto">Contacto</a></li> -->
         </ul>
     </nav>
-
 </header>
 
 <style>
-
-    header{
+    header {
         padding: 4rem 2rem;
         position: sticky;
-        top:0;
+        top: 0;
         /* z-index: 100000; */
-        
     }
 
     .nav {
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out, width 0.3s ease-in-out;
     }
 
     .nav-list {
@@ -46,12 +44,20 @@
         font-weight: 600;
         transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
+
     .nav-list a:hover {
         color: rgba(255, 255, 255, 1);
         transform: scale(1.1);
     }
 
+    .nav.visible {
+        background-color: rgba(255, 255, 255, 0.26);
+        border-radius: 10px;
+        margin: 0 auto;
+        width: 18rem; /* Ajusta el ancho según tus necesidades */
+    }
 </style>
+
 <script>
     function pxToRem(px:number) {
         const baseFontSize = 16; // Default browser font size is 16px
@@ -59,4 +65,16 @@
     }
 
     console.log(pxToRem(64)); // Example usage
+
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('main-nav');
+        const inicioSection = document.getElementById('inicio');
+        const inicioSectionHeight = inicioSection?.offsetHeight;
+
+        if (inicioSectionHeight && window.scrollY > inicioSectionHeight) {
+            nav?.classList.add('visible');
+        } else {
+            nav?.classList.remove('visible');
+        }
+    });
 </script>

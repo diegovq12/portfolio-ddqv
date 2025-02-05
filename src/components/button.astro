@@ -47,10 +47,6 @@ const { text, href, icon, type } = Astro.props;
     background-color: #456A8D;
     transform: scale(1.025);
   }
-  
-  .button.primary:hover {
-    background-color: #456A8D;
-  }
 
   .button.secondary {
     background-color: #333; 
@@ -64,5 +60,29 @@ const { text, href, icon, type } = Astro.props;
   .button-icon {
     width: 1rem;
     height: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .button {
+      font-size: 0.875rem;
+      padding: 0.6rem 1.2rem;
+    }
+
+    .button-icon {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .button {
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .button-icon {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
   }
 </style>
